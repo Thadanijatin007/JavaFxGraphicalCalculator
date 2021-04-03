@@ -1,25 +1,27 @@
-# JavaGraphicalCalculator
+# Java Graphical Calculator
 Java Graphical Calculator 
 
 ## Title
 Java Graphical Calculator 
 
 ## Purpose
-Our purticular purpose is to understand the java swing and gain the practical experiance with java ui packages and components. Also it improves Object oriented concepts.
+Our particular purpose is to understand the javaFX and gain the practical experience with java UI packages,components and database transaction. Utilizing object-oriented principles, we will attempt to build a functioning Graphing calculator.
 
 ## Target Audiance
-The Graphical Calculator is generic tool which is used by major audiance.
+The Graphical Calculator is generic tool which is used by audience who required to generate graph from the predefine functions.
 
 ## Description
-The calulator with user interface allows user to calculate the small to large mathamatical operations. Normally we used a basic operations like add, subtract, multiply or divide two numbers but as a additional features we have included some other mathamatical operations like mod, percentage, square root and factorial etc.
+The graphing calculator with user interface allows user to generate the graph based on function and input values. It also stores history in the database.
  
-## Functionalities
-This calculator includes the opration like addition, subs, multiply and division. Additionally it allows to find 
-		- mod, 
-		- percentage, 
-		- square, 
-		- square root of any number and 
-		- factorial. 
- 
-## Group contract
+## Functionalities (Jatin and Iram)
+The Graphing calculator supports almost all kind of function to generate the graph. The key feature of this is History. It retrives function and value from the database and regeneerate graph.
 
+## Graphic User Interface (Iram)
+The user interface will be similar in design to calculators used in phones which will include a button that changes the color of the calculator for the user.
+
+## Report/UML Diagram/ Testing Documentations/Comments (Jatin and Iram)
+There will be 2 UML diagrams for this project outlining the states and functionality of the system. In addition, the report will highlight all the key features of the system as well as minor bugs that are still present themselves.
+
+## Group contract
+Jatin Thadani 
+Iram khan
