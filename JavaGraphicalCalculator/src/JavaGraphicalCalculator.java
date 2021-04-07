@@ -37,7 +37,7 @@ public class JavaGraphicalCalculator extends Applet {
         parser.add(x);
 
         CoordinateRect cr = this.getCoordinate();
-        DisplayCanvas canvas = new DisplayCanvas(cr);
+        DisplayCanvas canvas = new DisplayCanvas();
         canvas.setUseOffscreenCanvas(false);
         canvas.setHandleMouseZooms(false);
         LimitControlPanel limits = new LimitControlPanel();
