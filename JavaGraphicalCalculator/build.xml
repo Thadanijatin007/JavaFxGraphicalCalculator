@@ -20,10 +20,7 @@
         </copy>
     </target>
     <target name="run" depends="compile">
-        <java classname="AnimatedGraph" fork="true">
-            <classpath path="${target}"/>
-        </java>
-        <java classname="SimpleGraph" fork="true">
+        <java classname="GraphApplet" fork="true">
             <classpath path="${target}"/>
         </java>
     </target>
