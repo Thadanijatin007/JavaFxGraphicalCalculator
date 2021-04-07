@@ -9,9 +9,7 @@ import edu.draw.*;
 import javax.swing.*;
 import java.applet.Applet;
 import java.awt.*;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class JavaGraphicalCalculator extends Applet {
 
@@ -19,7 +17,7 @@ public class JavaGraphicalCalculator extends Applet {
     static final String USER = "jatin";
     static final String PASS = "g9xdbL5x8bGepSrJ";
     static final String DB_NAME = "JavaGraphicalCalculator";
-    static final String DB_URL = "jdbc:sqlserver://JATIN-THADANI-PC\\MSSQLSERVER;";
+    static final String DB_URL = "jdbc:sqlserver://JATIN-THADANI-PC\\MSSQLSERVER;database=" + DB_NAME + ";";
 
     Connection db_conn = null;
 
@@ -45,13 +43,14 @@ public class JavaGraphicalCalculator extends Applet {
         parser.add(x);
 
         CoordinateRect cr = this.getCoordinate();
-        DisplayCanvas canvas = new DisplayCanvas();
+        DisplayCanvas canvas = new DisplayCanvas(cr);
         canvas.setUseOffscreenCanvas(false);
         canvas.setHandleMouseZooms(false);
         LimitControlPanel limits = new LimitControlPanel();
         limits.addCoords(canvas);
 
-        ExpressionInput input = new ExpressionInput("", parser);
+        String function = this.getDatabaseConfiguration("function");
+        ExpressionInput input = new ExpressionInput(function, parser);
         Function func = input.getFunction(x);
         Graph1D graph = new Graph1D(func);
         JCMPanel jcmPanel = new JCMPanel();
@@ -93,11 +92,44 @@ public class JavaGraphicalCalculator extends Applet {
 
     public String getDatabaseConfiguration(String key) {
 
+        Statement stmt = null;
+        String sql = "SELECT ConfigurationValue FROM Configuration WHERE ConfigurationKey = '" + key + "'";
+        ResultSet rs;
+        String value = "";
 
-        return "0";
+        try {
+            stmt = db_conn.createStatement();
+            rs = stmt.executeQuery(sql);
+            rs.next();
+            value = rs.getString("ConfigurationValue");
+            System.out.println("Key : " + key + "\t\tValue : " + value);
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+        return value;
     }
 
     public void setDatabaseConfiguration(String key, String value) {
+
+        String updateQuery = "UPDATE Configuration SET ConfigurationValue = '" + value + "' WHERE ConfigurationKey = '" + key + "' ;";
+        PreparedStatement prepsInsertProduct = null;
+        ResultSet resultSet = null;
+
+        try {
+
+            prepsInsertProduct = db_conn.prepareStatement(updateQuery, Statement.RETURN_GENERATED_KEYS);
+            prepsInsertProduct.execute();
+            resultSet = prepsInsertProduct.getGeneratedKeys();
+
+            while (resultSet.next()) {
+                System.out.println("Generated: " + resultSet.getString(1));
+            }
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
     }
 
     public CoordinateRect getCoordinate() {
