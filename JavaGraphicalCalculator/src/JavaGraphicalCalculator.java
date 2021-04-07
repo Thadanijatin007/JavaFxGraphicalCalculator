@@ -4,19 +4,27 @@ import edu.awt.JCMPanel;
 import edu.data.Function;
 import edu.data.Parser;
 import edu.data.Variable;
-import edu.draw.Axes;
-import edu.draw.DisplayCanvas;
-import edu.draw.Graph1D;
-import edu.draw.LimitControlPanel;
 import edu.draw.*;
 
 import javax.swing.*;
 import java.applet.Applet;
 import java.awt.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class JavaGraphicalCalculator extends Applet {
 
+    //  Database credentials
+    static final String USER = "jatin";
+    static final String PASS = "g9xdbL5x8bGepSrJ";
+    static final String DB_NAME = "JavaGraphicalCalculator";
+    static final String DB_URL = "jdbc:sqlserver://JATIN-THADANI-PC\\MSSQLSERVER;";
+
+    Connection db_conn = null;
+
     public JavaGraphicalCalculator() {
+        this.connectDatabase();
     }
 
     public static void main(String[] a) {
@@ -43,7 +51,7 @@ public class JavaGraphicalCalculator extends Applet {
         LimitControlPanel limits = new LimitControlPanel();
         limits.addCoords(canvas);
 
-        ExpressionInput input = new ExpressionInput("sin(x)+2*cos(3*x)", parser);
+        ExpressionInput input = new ExpressionInput("", parser);
         Function func = input.getFunction(x);
         Graph1D graph = new Graph1D(func);
         JCMPanel jcmPanel = new JCMPanel();
@@ -67,9 +75,25 @@ public class JavaGraphicalCalculator extends Applet {
 
     public void connectDatabase() {
 
+        try {
+            DriverManager.registerDriver(new com.microsoft.sqlserver.jdbc.SQLServerDriver());
+            db_conn = DriverManager.getConnection(DB_URL, USER, PASS);
+
+            if (db_conn != null) {
+                System.out.println("Connected");
+            } else {
+                System.out.println("Error in sql connection");
+            }
+        } catch (SQLException exception) {
+            exception.printStackTrace();
+            System.out.println("Error in sql connection : " + exception.getMessage());
+        }
+
     }
 
     public String getDatabaseConfiguration(String key) {
+
+
         return "0";
     }
 
