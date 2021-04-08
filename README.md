@@ -14,7 +14,10 @@ The Graphical Calculator is generic tool which is used by audience who required 
 The graphing calculator with user interface allows user to generate the graph based on function and input values. It also stores history in the database.
  
 ## Functionalities (Jatin and Iram)
-The Graphing calculator supports almost all kind of function to generate the graph. The key feature of this is History. It retrives function and value from the database and regeneerate graph.
+The Graphing calculator supports almost all kind of function to generate the graph. The key feature of this is History. It retrives function and value from the database and regeneerate graph. We have done the graph and equation calculation using the library known as edu math lib (http://math.hws.edu/eck/), as it contains the standard mathematical functions and graph operation. 
+
+## Database Connectivity
+To connect database, first you need one database with table called "Configuration". The script for database and schema is committed in the code under root directory with named "JavaGraphicalCalculator.sql". Run that script to generate default required schema for this calculator then you need to change the line from 17 to 20 in  "JavaGraphicalCalculator/src/JavaGraphicalCalculator.java" file.
 
 ## Graphic User Interface (Iram)
 The user interface will be similar in design to calculators used in phones which will include a button that changes the color of the calculator for the user.
