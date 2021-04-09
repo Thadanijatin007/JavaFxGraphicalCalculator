@@ -1,4 +1,4 @@
-# Java Graphical Calculator
+# JavaFx Graphical Calculator
 Java Graphical Calculator 
 
 ## Title
