@@ -32,6 +32,6 @@ Iram khan
 
 
 ## Images
-![Image01](https://user-images.githubusercontent.com/81376071/114210294-3a1ef080-997d-11eb-98fd-d47551a84ed3.PNG)
+![Image01](https://user-images.githubusercontent.com/81376071/114249385-16c56700-99b8-11eb-9be0-2325106d7851.PNG)
+![Image02](https://user-images.githubusercontent.com/81376071/114249386-17f69400-99b8-11eb-80c5-f0f430951e97.PNG)
 
-![Image02](https://user-images.githubusercontent.com/81376071/114215012-b405a880-9982-11eb-818d-afe0607af7e7.PNG)
