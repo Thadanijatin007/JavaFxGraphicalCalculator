@@ -29,3 +29,7 @@ There will be 2 UML diagrams for this project outlining the states and functiona
 Jatin Thadani 
 
 Iram khan
+
+
+## Images
+![Image01](https://user-images.githubusercontent.com/81376071/114210294-3a1ef080-997d-11eb-98fd-d47551a84ed3.PNG)
