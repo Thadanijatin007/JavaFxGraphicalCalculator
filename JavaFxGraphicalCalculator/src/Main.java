@@ -7,6 +7,9 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
+    final int WINDOW_SIZE = 10;
+    private ScheduledExecutorService scheduledExecutorService;
+    
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
