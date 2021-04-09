@@ -30,10 +30,6 @@ INSERT [dbo].[Configuration] ([Id], [ConfigurationKey], [ConfigurationValue]) VA
 GO
 INSERT [dbo].[Configuration] ([Id], [ConfigurationKey], [ConfigurationValue]) VALUES (2, N'xmax', N'10')
 GO
-INSERT [dbo].[Configuration] ([Id], [ConfigurationKey], [ConfigurationValue]) VALUES (3, N'ymin', N'-10')
-GO
-INSERT [dbo].[Configuration] ([Id], [ConfigurationKey], [ConfigurationValue]) VALUES (4, N'ymax', N'10')
-GO
 INSERT [dbo].[Configuration] ([Id], [ConfigurationKey], [ConfigurationValue]) VALUES (5, N'function', N'cos(x)+2*sin(3*x)')
 GO
 SET IDENTITY_INSERT [dbo].[Configuration] OFF
